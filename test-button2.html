@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Тестовая кнопка</title>
     <script src="https://api.bitrix24.com/api/v1/"></script>
 </head>
 <body>
@@ -11,20 +12,8 @@
     <script>
         function showTestMessage() {
             BX24.init(() => {
-                // Выводим системное сообщение через JS API
+                // Выводим системное сообщение
                 BX24.alert("Тест: Кнопка работает!");
-                
-                // Дополнительно: можно записать активность в сделку (метод crm.activity.add)
-                const dealId = BX24.getEntityId(); 
-                BX24.callMethod("crm.activity.add", {
-                    fields: {
-                        OWNER_ID: dealId,
-                        OWNER_TYPE_ID: 2, // 2 = сделка
-                        TYPE_ID: 4, // 4 = уведомление
-                        SUBJECT: "Тестовая активность",
-                        DESCRIPTION: "Кнопка была нажата!"
-                    }
-                });
             });
         }
     </script>
